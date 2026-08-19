@@ -1,0 +1,62 @@
+using System.Security.Cryptography.X509Certificates;
+
+namespace ConsoleApp1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            //part 1— Small-range integers (venue details)
+            byte seatNumber =50;
+            Console.WriteLine($"Your seat number is: {seatNumber}");
+            byte roomNumber = 10;
+            Console.WriteLine("Your room number is: " + roomNumber);
+            byte viewerNumber = 10;
+            Console.WriteLine($"Your viewer number is: {viewerNumber}");
+
+            //part 2— Large integers (ticket & inventory tracking)
+            int ticketSerial = 123456789;
+            Console.WriteLine($"Your ticket serial number is: {ticketSerial}");
+            int totalTickets = 1000;
+            Console.WriteLine($"Total tickets available: {totalTickets}");  
+            SByte zoneCode = -5;
+            Console.WriteLine($"Your zone code is: {zoneCode}");
+
+
+            //part 3— Money & estimates (pricing)
+            double ticketPrice = 49.99;
+            decimal discountRate = 0.10m;
+            float screenBrightness = 80.0f;
+
+            //Part 4 — Non-numeric types (customer record)
+
+            string customerName = "Hadia Ebrahim";
+            char membershipCode = 'A';
+            bool isVIPMember = true;
+
+            // problem 2
+            byte student-age = 20; // syntax error: variable names cannot contain hyphens
+            byte student_age = 20; // corrected variable name
+            uint distance = -500; // syntax error: uint cannot hold negative values
+            uint ddistance =500; // corrected variable type to uint
+            int 1stPlayerScore = 1000; // syntax error: variable names cannot start with a digit
+            int firstPlayerScore = 1000; // corrected variable name
+            long itemsCount = 50; //long can hold larger values, but 50 is within the range of byte, so this is fine
+            byte itemCount = 50; // corrected variable type to byte
+            short temperature = 40000; // syntax error: short can only hold values from -32,768 to 32,767
+            short temperaturee = 30000; // corrected variable value within the range of short
+
+
+            // problem 3
+            //13.Declare an integer named currentStock with a value of 500.
+            int currentStock = 500; // Declare an integer named currentStock with a value of 500 on stack memory.
+            //14.Declare an integer named backupStock and assign the value of currentStock to it.
+            int backupStock = currentStock; // Declare an integer named backupStock and assign the value of currentStock to it on stack memory 500.
+            currentStock+=100; // Increment currentStock by 100, making it 600.
+            Console.WriteLine(currentStock); // Output the value of currentStock, which is now 600.
+            Console.WriteLine(backupStock); // Output the value of backupStock, which is still 500.
+
+        }
+    }
+    }
+
