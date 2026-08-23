@@ -1,0 +1,165 @@
+using System.ComponentModel;
+
+namespace Day3
+{
+    internal class Program
+    {
+        #region array
+        //Write a program in C# Sharp to find the sum of all elements of the array.
+        public static int Sum(int[] arr)
+        {
+            int sum = 0;
+            for (int i = 0; i < arr.Length; i++) { 
+                sum+= arr[i];
+            }
+            return sum;
+        }
+        //2.Write a program in C# Sharp to find maximum and minimum element in an array
+        public static void MaxMin(int[] arr)
+        {
+            int max = arr[0], min = arr[0];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if (arr[i] > max) max = arr[i];
+                if (arr[i]<min) min = arr[i];
+            }
+           Console.WriteLine($"MAX={max}, min={min}");
+        }
+        //3.Given a list of space separated words, reverse the order of the words.
+        public static void Reverse(string[] arr) {
+            for (int i = 0; i < arr.Length; i++) {
+                Console.Write(arr[i]);
+                Console.WriteLine(" ");
+            }
+        
+        }
+        #endregion
+        #region value types
+        //passing by value
+        public static void add(int x,int y)
+        {
+            x += 5;
+            y += 5;
+
+        }
+        //passing by reference
+        public static void add(ref int x,ref int y)
+        {
+            x += 5;
+            y += 5;
+
+        }
+        #endregion
+        #region reference types
+        //passing by value
+        public static void Summ(int[] arr)
+        {
+            
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i]+=5;
+            }
+            
+        }
+        //passing by reference
+        public static void Summ(ref int[] arr)
+        {
+
+            for (int i = 0; i < arr.Length; i++)
+            {
+                arr[i] += 5;
+            }
+
+        }
+        #endregion
+        #region functions
+        //3-Write a c# Function that accept 4 parameters from user and return result of summation and subtracting of two numbers
+        public static void acc(int a,int b,int c,int d)
+        {
+            int sum = a + b;
+            int sub = c - d;
+            Console.WriteLine($"sumab={sum},sumcd={sub}");
+        }
+        //4-Create a function named "IsPrime", which receives an integer number and returns true if it is prime, or false if it is not:
+        public static bool isPrime(int n)
+        {
+            bool found = true;
+            for(int i = 2; i * i <= n; i++)
+            {
+                if (n % i == 0)
+                {
+                    found = false;
+                    break;
+                } 
+            }
+            return found;
+        }
+
+        //5-Create an iterative (non-recursive) function to calculate the factorial of the number specified as parameter
+        public static int fact(int n)
+        {
+            int fact = 1;
+            for(int i = 1; i <= n; i++)
+            {
+                fact *= i;
+            }
+            return fact;
+        }
+        //6-Create a function named "ChangeChar" to modify a letter in a certain position (0 based) of a string, replacing it with a different letter
+        public static string change(string name)
+        {
+            name.Remove(0, 1);
+            string div = 'B' + name;
+            return div;
+        }
+        #endregion
+        static void Main(string[] args)
+        {
+            #region Array
+            // Write a program to create two multidimensional arrays of the same size. Accept values from the user and store them in the first array. Now copy all the elements of the first array onto the second array and print the second array.  
+            int[,] arr=new int[2,2];
+            int[,] arr2= new int[2,2];
+            for (int i = 0; i < 2; i++) {
+                for (int j = 0; j < 2; j++) {
+                    int.TryParse(Console.ReadLine(), out arr[i,j]);
+                }
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    arr2[i,j] = arr[i,j];
+                }
+            }
+            for (int i = 0; i < 2; i++)
+            {
+                for (int j = 0; j < 2; j++)
+                {
+                    Console.Write(arr2[i,j]);
+                }
+            }
+
+            //5.Write a Program to Print One Dimensional Array in Reverse Order
+            int[] arr3=new int[5];
+            for (int i = 0; i < 5; i++) { 
+               int.TryParse(Console.ReadLine(),out arr3[i]);
+            }
+            for (int i = 4; i >=0; i--)
+            {
+                Console.WriteLine(arr3[i]);
+            }
+            #endregion
+            #region value types 
+            int x = 10, y = 10;
+            add(x,y);
+            add(ref x,ref y);
+            #endregion
+            #region reference types
+            int [] arr4=new int[5];
+            Summ(arr4);
+            Summ(ref arr4);
+            #endregion
+
+        }
+    }
+}
