@@ -1,0 +1,46 @@
+namespace Day_7
+{
+    public enum Role
+    {
+        Admin, Accountant, Stock, Reception
+    }
+    public struct Employee
+    {
+        public string Name;
+        public int salary;
+        public List<Role> roles;
+
+        public Employee() { }
+        public void Diaplay() {
+            Console.WriteLine($"Name:{Name},Salary:{salary}");
+            foreach (Role role in roles) Console.WriteLine($"Role:{role}");
+        }
+
+        public void AssignRoler(Role role)
+        {
+            roles.Add(role);
+        }
+
+        public bool HashRole(Role role)
+        {
+            return roles.Contains(role);
+        }
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Employee emp = new Employee();
+            emp.Name = "hadia";
+            emp.salary = 3000;
+            emp.roles = new List<Role>();
+            emp.AssignRoler(Role.Admin);
+            emp.AssignRoler(Role.Accountant);
+
+            emp.Diaplay();
+            Console.WriteLine(emp.HashRole(Role.Admin));
+            Console.WriteLine(emp.HashRole(Role.Stock));
+        }
+    }
+}
